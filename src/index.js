@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import App from "./components/App"
 
-ReactDOM.render(<h1 className = "heading">Hello World, I'm here and you too!</h1>,document.getElementById("root")
-);
+ReactDOM.render(<App/>,document.getElementById("root"));
 
 
