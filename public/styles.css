@@ -18,16 +18,24 @@ body{
     color: rgb(255, 255, 255);
     background-color: rgb(250, 178, 45);
 }
+.property{
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+}
 .notes{
     display: inline-block;
     margin: 1rem;
 }
 .notes-body{
-    border-radius: 4px;
+    border-radius: 10px 0 10px 0;
     background-color: white;
-    max-width: 20rem;
-    max-height: 10rem;
+    max-width: 25rem;
     padding: 1rem;
+}
+.notes-body h3{
+    text-align: center;
 }
 .hr-line{
     max-width: 4rem;
