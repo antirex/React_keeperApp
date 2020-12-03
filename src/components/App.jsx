@@ -1,18 +1,18 @@
 import React from "react";
 import Footer from "./Footer";
 import Header from "./Header";
-import Note from "./Note";
-import notes from "../notesFull";
+import CreateArea from "./CreateArea";
 
 function App() {
   return (
     <div>
       <Header />
-      <div className = "property">
+      <CreateArea />
+      {/* <div className = "property">
         {notes.map(function (note) {
             return <Note key={note.key} head={note.title} desc={note.content} />;
         })}
-      </div>
+      </div> */}
       <Footer />
     </div>
   );
