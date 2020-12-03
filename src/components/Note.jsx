@@ -8,7 +8,9 @@ function Note(props) {
         <p>{props.content}</p>
         <hr className="hr-line" />
         <div className="center">
-          <button className="delete">DELETE</button>
+          <button className="delete" onClick={()=>{
+            props.onDelete(props.id)
+          }}><i className="fas fa-trash-alt"></i></button>
         </div>
       </div>
     </div>

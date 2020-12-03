@@ -23,6 +23,13 @@ function CreateArea() {
       return [input, ...prevItem];
     });
   }
+  function deleteItem(id) {
+    setList((prevItem) => {
+      return prevItem.filter((item, index) => {
+        return index !== id;
+      });
+    });
+  }
   function handleSubmit(event) {
     event.preventDefault();
   }
@@ -46,7 +53,15 @@ function CreateArea() {
       </form>
       <div>
         {list.map((list, index) => {
-          return <Note title={list.title} content={list.content} key={index} />;
+          return (
+            <Note
+              title={list.title}
+              content={list.content}
+              key={index}
+              id={index}
+              onDelete={deleteItem}
+            />
+          );
         })}
       </div>
     </div>
