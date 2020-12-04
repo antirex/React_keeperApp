@@ -3,6 +3,8 @@ import Note from "./Note";
 import Zoom from "@material-ui/core/Zoom";
 import AddIcon from "@material-ui/icons/Add";
 import Fab from "@material-ui/core/Fab";
+import Tooltip from '@material-ui/core/Tooltip';
+import Fade from '@material-ui/core/Fade';
 
 function CreateArea() {
   const [list, setList] = useState([]);
@@ -65,11 +67,17 @@ function CreateArea() {
           value={input.content}
         />
         {expand === true ? (
-          <Zoom in="true">
-            <Fab onClick={handleClick}>
-              <AddIcon />
-            </Fab>
-          </Zoom>
+          <Tooltip
+            TransitionComponent={Fade}
+            TransitionProps={{ timeout: 600 }}
+            title="Add Note 😵"
+          >
+            <Zoom in="true">
+              <Fab onClick={handleClick}>
+                <AddIcon />
+              </Fab>
+            </Zoom>
+          </Tooltip>
         ) : null}
       </form>
       <div>
