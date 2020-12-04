@@ -35,7 +35,7 @@ function CreateArea() {
   }
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="create-note">
         <input
           name="title"
           placeholder="Title"
@@ -45,7 +45,7 @@ function CreateArea() {
         <textarea
           name="content"
           placeholder="Take a note..."
-          rows="3"
+          rows="4"
           onChange={handleChange}
           value={input.desc}
         />
