@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import Note from "./Note";
+import Zoom from "@material-ui/core/Zoom";
+import AddIcon from "@material-ui/icons/Add";
+import Fab from "@material-ui/core/Fab";
 
 function CreateArea() {
   const [list, setList] = useState([]);
@@ -7,6 +10,7 @@ function CreateArea() {
     title: "",
     content: "",
   });
+  const [expand, setExpand] = useState(false);
 
   function handleChange(event) {
     const { value, name } = event.target;
@@ -19,6 +23,11 @@ function CreateArea() {
   }
 
   function handleClick() {
+    setExpand(false);
+    setInput({
+      title: "",
+      content: "",
+    });
     setList((prevItem) => {
       return [input, ...prevItem];
     });
@@ -30,26 +39,38 @@ function CreateArea() {
       });
     });
   }
+  function handleExpansion(event) {
+    setExpand(true);
+  }
   function handleSubmit(event) {
     event.preventDefault();
   }
   return (
     <div>
       <form onSubmit={handleSubmit} className="create-note">
-        <input
-          name="title"
-          placeholder="Title"
-          onChange={handleChange}
-          value={input.heading}
-        />
+        {expand === true ? (
+          <input
+            name="title"
+            placeholder="Title"
+            onChange={handleChange}
+            value={input.heading}
+          />
+        ) : null}
         <textarea
           name="content"
           placeholder="Take a note..."
-          rows="4"
+          rows={expand === true ? "4" : "1"}
+          onClick={handleExpansion}
           onChange={handleChange}
-          value={input.desc}
+          value={input.content}
         />
-        <button onClick={handleClick}>+</button>
+        {expand === true ? (
+          <Zoom in="true">
+            <Fab onClick={handleClick}>
+              <AddIcon />
+            </Fab>
+          </Zoom>
+        ) : null}
       </form>
       <div>
         {list.map((list, index) => {
