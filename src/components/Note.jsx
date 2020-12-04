@@ -9,12 +9,12 @@ function Note(props) {
         <h3>{props.title}</h3>
         <p>{props.content}</p>
         <hr className="hr-line" />
-        <Tooltip
-          TransitionComponent={Fade}
-          TransitionProps={{ timeout: 600 }}
-          title="Delete Note 👀"
-        >
-          <div className="center">
+        <div className="center">
+          <Tooltip
+            TransitionComponent={Fade}
+            TransitionProps={{ timeout: 600 }}
+            title="Delete Note 👀"
+          >
             <button
               className="delete"
               onClick={() => {
@@ -23,8 +23,8 @@ function Note(props) {
             >
               <i className="fas fa-trash-alt"></i>
             </button>
-          </div>
-        </Tooltip>
+          </Tooltip>
+        </div>
       </div>
     </div>
   );
